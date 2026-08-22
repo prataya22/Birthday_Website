@@ -79,7 +79,7 @@ export default function Surprises({ onBack }) {
     <div className="surprises-page">
       {/* Decorative floating hearts */}
       <div className="surp-floats" aria-hidden="true">
-        {["💕", "🌸", "⭐", "✨", "🎀", "💫", "🌺", "💖"].map((e, i) => (
+        {["💕", "🌸", "⭐", "✨", "🎀", "💫", "🎉", "💖"].map((e, i) => (
           <span key={i} className={`surp-float surp-float--${i + 1}`}>{e}</span>
         ))}
       </div>

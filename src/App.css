@@ -97,13 +97,13 @@ a:focus-visible {
 }
 
 .intro-text {
-  max-width: 650px;
+  max-width: 700px;
   margin: 0 auto;
   color: var(--pink);
   font-family: var(--serif);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-style: italic;
-  line-height: 1;
+  line-height: 2;
   animation: riseIn 0.8s 0.26s ease both;
 }
 
@@ -112,9 +112,9 @@ a:focus-visible {
   color: var(--ink);
   font-family: var(--serif);
   font-size: clamp(5rem, 17vw, 15rem);
-  font-weight: 400;
-  letter-spacing: -0.08em;
-  line-height: 0.72;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.62;
   animation: riseIn 0.8s 0.38s ease both;
 }
 
