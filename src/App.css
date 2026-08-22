@@ -1,0 +1,790 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --paper: #f6e8d8;
+  --paper-light: #fff7ec;
+  --ink: #252641;
+  --pink: #d93470;
+  --yellow: #ffd35c;
+  --green: #afd0c6;
+  --muted: #6b6873;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+  --mono: "Space Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 5px;
+}
+
+/* Main background */
+
+.invitation-page {
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 7%,
+      rgba(255, 211, 92, 0.3),
+      transparent 19rem),
+    radial-gradient(circle at 5% 38%,
+      rgba(217, 52, 112, 0.1),
+      transparent 23rem),
+    var(--paper);
+}
+
+.invitation-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+/* Hero */
+
+.hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 28px 64px 32px;
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.hero-heading {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.intro-text {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--pink);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-style: italic;
+  line-height: 1;
+  animation: riseIn 0.8s 0.26s ease both;
+}
+
+.hero-heading h1 {
+  margin: 32px 0 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(5rem, 17vw, 15rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 0.72;
+  animation: riseIn 0.8s 0.38s ease both;
+}
+
+.hero-heading h1 em {
+  color: var(--pink);
+  font-style: normal;
+}
+
+.birthday-text {
+  margin: 58px 0 0;
+  color: rgba(37, 38, 65, 0.8);
+  font-size: 25px;
+  font-weight: 600;
+  animation: riseIn 0.8s 0.52s ease both;
+}
+
+.celebrate-button {
+  min-height: 58px;
+  margin-top: 48px;
+  padding: 16px 36px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper-light);
+  box-shadow: 6px 7px 0 var(--pink);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+  animation: riseIn 0.1s 0.1s ease both;
+}
+
+.celebrate-button strong {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.celebrate-button:hover {
+  background: var(--pink);
+  box-shadow: 8px 9px 0 var(--ink);
+  transform: translateY(-4px);
+}
+
+.celebrate-button:active {
+  box-shadow: 2px 3px 0 var(--pink);
+  transform: translateY(0);
+}
+
+/* Stickers */
+
+.sticker {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.sticker-sparkle {
+  top: 15%;
+  left: 9%;
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+.sticker-bow {
+  top: 13%;
+  right: 10%;
+  animation: floatAlt 6s ease-in-out infinite;
+}
+
+.sticker-star {
+  top: 47%;
+  left: 8%;
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+.sticker-balloon {
+  top: 48%;
+  right: 8%;
+  animation: floatAlt 6.5s ease-in-out infinite;
+}
+
+.sticker-flower {
+  bottom: 5%;
+  left: 20%;
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+.sticker-champagne {
+  right: 21%;
+  bottom: 4%;
+  animation: floatAlt 6s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatAlt {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 24px 48px;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(4rem, 14vw, 12rem);
+    margin: 24px 0 0;
+  }
+
+  .intro-text {
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+  }
+
+  .birthday-text {
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  .celebrate-button {
+    padding: 14px 32px;
+    min-height: 54px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px 32px;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    padding: 24px 0;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(3rem, 12vw, 8rem);
+    margin: 20px 0 0;
+    line-height: 0.8;
+  }
+
+  .intro-text {
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
+    max-width: 90%;
+  }
+
+  .birthday-text {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+
+  .celebrate-button {
+    padding: 12px 28px;
+    min-height: 50px;
+    font-size: 11px;
+  }
+
+  .celebrate-button strong {
+    font-size: 16px;
+  }
+
+  .sticker {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .sticker-sparkle {
+    top: 12%;
+    left: 5%;
+  }
+
+  .sticker-bow {
+    top: 10%;
+    right: 5%;
+  }
+
+  .sticker-star {
+    top: 50%;
+    left: 3%;
+  }
+
+  .sticker-balloon {
+    top: 50%;
+    right: 3%;
+  }
+
+  .sticker-flower {
+    bottom: 8%;
+    left: 12%;
+  }
+
+  .sticker-champagne {
+    right: 12%;
+    bottom: 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 12px 16px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 16px 0;
+  }
+
+  .hero-heading {
+    max-width: 100%;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(1.8rem, 10vw, 3.5rem);
+    margin: 16px 0 0;
+    letter-spacing: -0.06em;
+  }
+
+  .intro-text {
+    font-size: clamp(0.95rem, 2.5vw, 1.6rem);
+    max-width: 100%;
+  }
+
+  .birthday-text {
+    font-size: 13px;
+    margin-top: 28px;
+  }
+
+  .celebrate-button {
+    padding: 10px 20px;
+    min-height: 44px;
+    font-size: 10px;
+    box-shadow: 4px 4px 0 var(--pink);
+    margin-top: 32px;
+  }
+
+  .celebrate-button strong {
+    font-size: 14px;
+    margin-left: 6px;
+  }
+
+  .celebrate-button:hover {
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .sticker {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  .sticker-sparkle {
+    top: 8%;
+    left: 2%;
+    font-size: 1.5rem;
+  }
+
+  .sticker-bow {
+    top: 7%;
+    right: 2%;
+    font-size: 1.5rem;
+  }
+
+  .sticker-star {
+    display: none;
+  }
+
+  .sticker-balloon {
+    display: none;
+  }
+
+  .sticker-flower {
+    bottom: 10%;
+    left: 8%;
+    font-size: 1.2rem;
+  }
+
+  .sticker-champagne {
+    right: 8%;
+    bottom: 10%;
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floatAlt {
+
+  0%,
+  100% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(9px) rotate(-5deg);
+  }
+}
+
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero-section {
+    padding: 24px 28px 32px;
+  }
+
+  .celebration-inner {
+    grid-template-columns: 1fr;
+    padding: 100px 28px 0;
+  }
+
+  .toast-row {
+    margin: 100px 28px 0;
+  }
+
+  .footer {
+    margin: 0 28px;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-label {
+    display: none;
+  }
+
+  .hero-section {
+    min-height: 100svh;
+    padding: 22px 20px 28px;
+  }
+
+  .eyebrow {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow span {
+    width: 30px;
+  }
+
+  .eyebrow p {
+    font-size: 8px;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(4.5rem, 23vw, 8rem);
+  }
+
+  .birthday-text {
+    margin-top: 42px;
+  }
+
+  .celebrate-button {
+    padding: 15px 25px;
+  }
+
+  .sticker {
+    font-size: 2rem;
+  }
+
+  .sticker-sparkle {
+    left: 4%;
+  }
+
+  .sticker-bow {
+    right: 4%;
+  }
+
+  .sticker-star {
+    left: 1%;
+  }
+
+  .sticker-balloon {
+    right: 1%;
+  }
+
+  .sticker-flower {
+    left: 10%;
+  }
+
+  .sticker-champagne {
+    right: 10%;
+  }
+
+  .celebration-inner {
+    gap: 60px;
+    padding: 90px 20px 0;
+  }
+
+  .celebration-copy h2 {
+    font-size: 4.5rem;
+  }
+
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dark-card {
+    min-height: 330px;
+    padding: 28px;
+  }
+
+  .light-card,
+  .yellow-card {
+    min-height: 180px;
+    padding: 26px;
+  }
+
+  .toast-row {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 90px 20px 0;
+  }
+
+  .wish-area {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin: 0 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- "I'll Skip It" button ---- */
+.skip-it-btn {
+  min-height: 58px;
+  padding: 16px 36px;
+  border: 2px solid var(--muted, #6b6873);
+  border-radius: 999px;
+  background: var(--paper-light, #fff7ec);
+  color: var(--muted, #6b6873);
+  font-family: var(--sans, "DM Sans", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 4px 5px 0 var(--muted, #6b6873);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.skip-it-btn:hover {
+  background: var(--ink, #252641);
+  color: #fff;
+  border-color: var(--ink, #252641);
+  box-shadow: 6px 7px 0 var(--muted, #6b6873);
+  transform: translateY(-4px);
+}
+
+.skip-it-btn:active {
+  transform: translateY(0);
+  box-shadow: 2px 3px 0 var(--muted, #6b6873);
+}
+
+/* ---- Skip Confirmation Modal ---- */
+.skip-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(37, 38, 65, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: backdropFadeIn 0.25s ease both;
+}
+
+.skip-modal {
+  background: var(--paper-light, #fff7ec);
+  border: 2.5px solid rgba(37, 38, 65, 0.12);
+  border-radius: 20px;
+  box-shadow: 8px 10px 0 var(--pink, #d93470);
+  max-width: 380px;
+  width: 100%;
+  padding: 40px 32px 32px;
+  text-align: center;
+  animation: modalPop 0.25s cubic-bezier(0.3, 0.8, 0.4, 1.2) both;
+}
+
+/* Buttons inside modal should appear instantly — no inherited rise-in delay */
+.skip-modal .celebrate-button {
+  animation: none;
+  margin-top: 0;
+}
+
+.skip-emoji {
+  font-size: 3rem;
+  margin: 0 0 8px;
+  line-height: 1;
+}
+
+.skip-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--ink, #252641);
+  margin: 0 0 10px;
+}
+
+.skip-body {
+  font-size: 1rem;
+  color: var(--muted, #6b6873);
+  font-weight: 500;
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+.skip-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.skip-confirm-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted, #6b6873);
+  font-family: var(--sans, "DM Sans", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.skip-confirm-btn:hover {
+  color: var(--ink, #252641);
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(20px);
+  }
+
+  70% {
+    transform: scale(1.04) translateY(-4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ---- Transition modal (skip → surprises) ---- */
+.skip-transition-modal {
+  box-shadow: 8px 10px 0 var(--pink, #d93470);
+  border-color: rgba(217, 52, 112, 0.2);
+  background: linear-gradient(135deg, #fff7ec, #fce4ee);
+}
+
+.skip-transition-modal .skip-title {
+  color: var(--pink, #d93470);
+}
+
+.skip-transition-modal .skip-body {
+  color: var(--ink, #252641);
+  opacity: 0.8;
+}
