@@ -46,6 +46,16 @@
 </details>
 
 <details>
+<summary><strong>⏳ Timeline Page</strong></summary>
+
+- Visual timeline displaying key moments and memories
+- Interactive timeline elements with hover effects
+- Smooth transitions between timeline events
+- Navigation to proceed to the Surprises page
+
+</details>
+
+<details>
 <summary><strong>💌 20 Wishes Page</strong></summary>
 
 - 20 personalised letter envelopes in a responsive grid
