@@ -361,7 +361,7 @@ export default function Celebration({ onBack, onSurprises }) {
             ref={audioRef}
             controls
             className="birthday-audio"
-            src="/audio/WhatsApp Audio 2026-08-22 at 17.15.55.mpeg"
+            src="/audio/birthday-fanfare.mp3"
             preload="auto"
             style={{
               display: blown ? "block" : "none",

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Celebration from "./Celebration";
 import Surprises from "./Surprises";
+import Timeline from "./Timeline";
 
 function Sticker({ children, className = "", label }) {
   return (
@@ -16,8 +17,6 @@ function Sticker({ children, className = "", label }) {
 }
 
 export default function App() {
-  const [noteOpen, setNoteOpen] = useState(false);
-  const [wishMade, setWishMade] = useState(false);
   const [showCakePrompt, setShowCakePrompt] = useState(false);
   const [showSkipConfirm, setShowSkipConfirm] = useState(false);
   const [showSkipConfirm2, setShowSkipConfirm2] = useState(false);
@@ -27,13 +26,21 @@ export default function App() {
   const [currentView, setCurrentView] = useState(() => {
     const hash = window.location.hash;
     if (hash === "#surprises") return "surprises";
+    if (hash === "#timeline") return "timeline";
     if (hash === "#celebration") return "celebration";
     return "home";
   });
 
   useEffect(() => {
     const hash = window.location.hash;
-    const initialView = hash === "#surprises" ? "surprises" : hash === "#celebration" ? "celebration" : "home";
+    const initialView =
+      hash === "#surprises"
+        ? "surprises"
+        : hash === "#timeline"
+          ? "timeline"
+          : hash === "#celebration"
+            ? "celebration"
+            : "home";
     if (!window.history.state) {
       window.history.replaceState({ view: initialView }, "", hash || "#");
     }
@@ -42,6 +49,8 @@ export default function App() {
       const h = window.location.hash;
       if (h === "#surprises") {
         setCurrentView("surprises");
+      } else if (h === "#timeline") {
+        setCurrentView("timeline");
       } else if (h === "#celebration") {
         setCurrentView("celebration");
       } else {
@@ -84,21 +93,24 @@ export default function App() {
     setShowSkipConfirm2(false);
   };
 
-  const goToTop = () => {
-    document
-      .getElementById("top")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
   if (currentView === "surprises") {
-    return <Surprises onBack={() => handleGoBack("celebration")} />;
+    return <Surprises onBack={() => handleGoBack("timeline")} />;
+  }
+
+  if (currentView === "timeline") {
+    return (
+      <Timeline
+        onBack={() => handleGoBack("celebration")}
+        onSurprises={() => navigateTo("surprises")}
+      />
+    );
   }
 
   if (currentView === "celebration") {
     return (
       <Celebration
         onBack={() => handleGoBack("home")}
-        onSurprises={() => navigateTo("surprises")}
+        onSurprises={() => navigateTo("timeline")}
       />
     );
   }
@@ -292,7 +304,7 @@ export default function App() {
             <button
               className="celebrate-button"
               style={{ marginTop: 0, fontSize: "11px", animation: "none" }}
-              onClick={() => { setShowSkipTransition(false); navigateTo("surprises"); }}
+              onClick={() => { setShowSkipTransition(false); navigateTo("timeline"); }}
               type="button"
             >
               ✦ Let's go ✦

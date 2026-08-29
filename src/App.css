@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap");
-
 :root {
   --paper: #f6e8d8;
   --paper-light: #fff7ec;
@@ -213,44 +211,6 @@ a:focus-visible {
   right: 21%;
   bottom: 4%;
   animation: floatAlt 6s ease-in-out infinite;
-}
-
-/* Animations */
-
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes floatSoft {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes floatAlt {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-16px);
-  }
 }
 
 /* Responsive */
@@ -503,42 +463,12 @@ a:focus-visible {
   .hero-section {
     padding: 24px 28px 32px;
   }
-
-  .celebration-inner {
-    grid-template-columns: 1fr;
-    padding: 100px 28px 0;
-  }
-
-  .toast-row {
-    margin: 100px 28px 0;
-  }
-
-  .footer {
-    margin: 0 28px;
-  }
 }
 
 @media (max-width: 650px) {
-  .top-label {
-    display: none;
-  }
-
   .hero-section {
     min-height: 100svh;
     padding: 22px 20px 28px;
-  }
-
-  .eyebrow {
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .eyebrow span {
-    width: 30px;
-  }
-
-  .eyebrow p {
-    font-size: 8px;
   }
 
   .hero-heading h1 {
@@ -579,48 +509,6 @@ a:focus-visible {
 
   .sticker-champagne {
     right: 10%;
-  }
-
-  .celebration-inner {
-    gap: 60px;
-    padding: 90px 20px 0;
-  }
-
-  .celebration-copy h2 {
-    font-size: 4.5rem;
-  }
-
-  .memory-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dark-card {
-    min-height: 330px;
-    padding: 28px;
-  }
-
-  .light-card,
-  .yellow-card {
-    min-height: 180px;
-    padding: 26px;
-  }
-
-  .toast-row {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 90px 20px 0;
-  }
-
-  .wish-area {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-    margin: 0 20px;
   }
 }
 

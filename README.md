@@ -88,6 +88,25 @@
 - [Node.js](https://nodejs.org/) v18 or higher
 - npm v9 or higher
 
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+The site will be running at `http://localhost:5173`.
+
+### Build for production
+
+```bash
+npm run build
+npm run preview   # preview the production build locally
+```
+
 ## 🎨 Design System
 
 ### Color Palette
