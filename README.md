@@ -15,7 +15,7 @@
 
 ## 📖 Overview
 
-`my-birthday` is a handcrafted, single-page web experience built to celebrate Prataya's 20th birthday. It features a multi-page interactive flow — from an animated landing page, to a cinematic candle-blowing scene, to 20 personalised letter-in-envelope wishes. Every detail, from the synthesized party fanfare to the guilt-trip skip modal, was designed to feel personal and alive.
+`my-birthday` is a handcrafted, single-page web experience built to celebrate Prataya's 20th birthday. It features a multi-page interactive flow — from an animated landing page, to a cinematic candle-blowing and cake-cutting celebration, to a visual timeline of memories, and finally to 20 personalised letter-in-envelope wishes. Every detail, from the synthesized party fanfare to the guilt-trip skip modal, was designed to feel personal and alive.
 
 ---
 
