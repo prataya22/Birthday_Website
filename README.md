@@ -135,21 +135,22 @@ npm run preview   # preview the production build locally
 Landing Page
     │
     ├─ [LET'S CELEBRATE] ──────────────────────→ Cake Prompt
-    │                                                  │
-    │                                     ┌────────────┴────────────┐
-    │                                     │                         │
-    │                              [OF COURSE]               [I'LL SKIP IT]
-    │                                     │                         │
-    │                            Celebration Page           Skip Modal 1
-    │                                     │                         │
-    │                          [Blow the Candle]           Skip Modal 2
-    │                                     │                    │         │
-    │                            [Cut a Piece]          [Let's go]  [Really skip]
-    │                                     │                    │         │
-    │                          [Unlock Surprises]    Celebration     Transition
-    │                                     │           Page           Popup → 20 Wishes
-    │                                     │
-    └─────────────────────────────────────→ 20 Wishes Page
+                                                      │
+                                         ┌────────────┴────────────┐
+                                         │                         │
+                                  [OF COURSE]               [I'LL SKIP IT]
+                                         │                         │
+                                Celebration Page ◄─────       Skip Modal 1
+                                         │             │           │
+                              [Blow the Candle]        │       Skip Modal 2
+                                         │             │        │        │
+                                [Cut a Piece]          │──[Let's go]  [Really skip]
+                                         │                              │
+                              [Unlock Surprises]                        │
+                                         │                              │
+                                Timeline Page ◄─────────────────────────│
+                                         │
+                           Surprises (20 Wishes) Page
 ```
 
 ---

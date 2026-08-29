@@ -176,6 +176,11 @@ export default function Celebration({ onBack, onSurprises }) {
       playNote(130.81, now + 0.1, 0.6, 0.18, "sine"); // C3
       playNote(196.0, now + 0.3, 0.4, 0.12, "sine"); // G3
 
+      // Release the audio context once every note has finished playing
+      setTimeout(() => {
+        ctx.close().catch(() => {});
+      }, 1600);
+
       // Second burst pop (sync with 900ms confetti burst)
       setTimeout(() => {
         try {
@@ -204,6 +209,11 @@ export default function Celebration({ onBack, onSurprises }) {
             o.start(n2 + i * 0.07);
             o.stop(n2 + i * 0.07 + 0.4);
           });
+
+          // Release this second context once its sounds have finished
+          setTimeout(() => {
+            ctx2.close().catch(() => {});
+          }, 700);
         } catch (_) { }
       }, 500);
 
